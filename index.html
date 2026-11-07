@@ -11,7 +11,6 @@
 <style>
 :root {
   --dark: #171614;
-  --stone: #302820;
   --gold: #b58c4b;
   --gold-light: #d1ad70;
   --cream: #e8dfcf;
@@ -26,11 +25,7 @@ body {
   margin: 0;
   min-height: 100vh;
   color: var(--cream);
-  background:
-    radial-gradient(ellipse at 50% 40%,
-      rgba(135,99,54,.20),
-      transparent 55%),
-    linear-gradient(135deg, #211e1a, #171614 55%, #100f0e);
+  background: #171614;
   font-family: Georgia, "Times New Roman", serif;
 }
 
@@ -43,32 +38,71 @@ body {
   overflow: hidden;
   padding: 40px 20px;
   isolation: isolate;
+  background:
+    radial-gradient(
+      ellipse 48% 65% at 12% 18%,
+      rgba(119, 78, 39, .30),
+      transparent 100%
+    ),
+    radial-gradient(
+      ellipse 38% 52% at 88% 78%,
+      rgba(91, 61, 37, .25),
+      transparent 100%
+    ),
+    radial-gradient(
+      ellipse 30% 45% at 72% 8%,
+      rgba(102, 76, 48, .13),
+      transparent 100%
+    ),
+    linear-gradient(
+      125deg,
+      #211e1a 0%,
+      #171614 42%,
+      #201b17 72%,
+      #100f0e 100%
+    );
 }
 
-/* Diffuse alte Steinwand */
+/* Organische, unregelmäßige Wandstruktur */
 .scene::before {
   content: "";
   position: absolute;
-  inset: 0;
+  inset: -12%;
   z-index: -2;
-  opacity: .5;
+  pointer-events: none;
+  opacity: .55;
   background:
-    repeating-linear-gradient(
-      173deg,
-      transparent 0 68px,
-      rgba(210,191,158,.035) 69px,
-      transparent 72px
+    radial-gradient(
+      ellipse 30% 24% at 18% 28%,
+      rgba(185, 137, 77, .12),
+      transparent 100%
+    ),
+    radial-gradient(
+      ellipse 24% 38% at 82% 62%,
+      rgba(120, 85, 51, .13),
+      transparent 100%
+    ),
+    radial-gradient(
+      ellipse 45% 18% at 52% 95%,
+      rgba(0, 0, 0, .32),
+      transparent 100%
     ),
     repeating-linear-gradient(
-      8deg,
-      transparent 0 112px,
-      rgba(0,0,0,.14) 113px,
-      transparent 116px
+      167deg,
+      transparent 0 83px,
+      rgba(218, 197, 163, .018) 84px,
+      transparent 87px
+    ),
+    repeating-linear-gradient(
+      12deg,
+      transparent 0 121px,
+      rgba(0, 0, 0, .11) 122px,
+      transparent 126px
     );
-  filter: blur(1.5px);
+  filter: blur(3px);
 }
 
-/* Dunkle Ecken und schwaches Licht */
+/* Tiefe Schatten und unregelmäßiger Lichtabfall */
 .scene::after {
   content: "";
   position: absolute;
@@ -77,56 +111,29 @@ body {
   pointer-events: none;
   background:
     radial-gradient(
-      ellipse at 50% 42%,
-      transparent 10%,
-      rgba(0,0,0,.28) 100%
+      ellipse 65% 75% at 48% 48%,
+      transparent 15%,
+      rgba(0, 0, 0, .24) 100%
     ),
     linear-gradient(
       90deg,
-      rgba(0,0,0,.38),
-      transparent 20%,
-      transparent 80%,
-      rgba(0,0,0,.42)
+      rgba(0, 0, 0, .27),
+      transparent 27%,
+      transparent 76%,
+      rgba(0, 0, 0, .38)
+    ),
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, .15),
+      transparent 35%,
+      transparent 75%,
+      rgba(0, 0, 0, .35)
     );
 }
 
-/* Schemen eines Gewölbebogens */
-.arch {
-  position: absolute;
-  width: min(760px, 88vw);
-  height: min(690px, 86vh);
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border: 1px solid rgba(191,164,125,.11);
-  border-bottom: 0;
-  border-radius: 52% 52% 0 0 / 40% 40% 0 0;
-  box-shadow:
-    0 0 0 18px rgba(0,0,0,.035),
-    0 0 0 19px rgba(191,164,125,.035),
-    inset 0 25px 55px rgba(0,0,0,.16);
-  pointer-events: none;
-}
-
-/* Spinnweben */
-.web {
-  position: absolute;
-  top: 0;
-  width: clamp(110px, 19vw, 230px);
-  opacity: .20;
-  pointer-events: none;
-}
-
-.web.left {
-  left: 0;
-}
-
-.web.right {
-  right: 0;
-  transform: scaleX(-1);
-}
-
 main {
+  position: relative;
+  z-index: 1;
   width: min(760px, 100%);
   text-align: center;
   padding: 80px 20px;
@@ -203,12 +210,13 @@ footer {
 }
 
 @media (max-width: 520px) {
-  .arch {
-    height: 65vh;
-    width: 94vw;
+  main {
+    padding: 60px 15px;
   }
-  .web {
-    opacity: .14;
+
+  .eyebrow {
+    font-size: 9px;
+    letter-spacing: .25em;
   }
 }
 </style>
@@ -216,28 +224,6 @@ footer {
 
 <body>
 <div class="scene">
-
-  <div class="arch"></div>
-
-  <!-- Spinnennetz links -->
-  <svg class="web left" viewBox="0 0 240 210"
-       fill="none" aria-hidden="true">
-    <g stroke="#d7c9b1" stroke-width=".8">
-      <path d="M0 0 L220 0 M0 0 L0 195 M0 0 L180 155 M0 0 L105 205 M0 0 L235 82"/>
-      <path d="M24 0 Q18 24 0 30 M53 0 Q40 48 0 57 M86 0 Q63 72 0 88 M121 0 Q85 97 0 122 M158 0 Q110 126 0 158"/>
-      <path d="M0 25 Q35 20 61 0 M0 55 Q61 47 103 0 M0 88 Q83 76 145 0 M0 122 Q107 103 185 0 M0 158 Q128 132 220 0"/>
-    </g>
-  </svg>
-
-  <!-- Spinnennetz rechts -->
-  <svg class="web right" viewBox="0 0 240 210"
-       fill="none" aria-hidden="true">
-    <g stroke="#d7c9b1" stroke-width=".8">
-      <path d="M0 0 L220 0 M0 0 L0 195 M0 0 L180 155 M0 0 L105 205 M0 0 L235 82"/>
-      <path d="M24 0 Q18 24 0 30 M53 0 Q40 48 0 57 M86 0 Q63 72 0 88 M121 0 Q85 97 0 122 M158 0 Q110 126 0 158"/>
-      <path d="M0 25 Q35 20 61 0 M0 55 Q61 47 103 0 M0 88 Q83 76 145 0 M0 122 Q107 103 185 0 M0 158 Q128 132 220 0"/>
-    </g>
-  </svg>
 
   <main>
     <p class="eyebrow">Autorin für Kurzkrimis & Thriller</p>
