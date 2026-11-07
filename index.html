@@ -1,0 +1,267 @@
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#171614">
+<meta name="description" content="R. Yard – Autorin für Kurzkrimis und Thriller. Weitere Informationen folgen.">
+<title>R. Yard | Kurzkrimis & Thriller</title>
+
+<style>
+:root {
+  --dark: #171614;
+  --stone: #302820;
+  --gold: #b58c4b;
+  --gold-light: #d1ad70;
+  --cream: #e8dfcf;
+  --muted: #b9ad9b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--cream);
+  background:
+    radial-gradient(ellipse at 50% 40%,
+      rgba(135,99,54,.20),
+      transparent 55%),
+    linear-gradient(135deg, #211e1a, #171614 55%, #100f0e);
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.scene {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 40px 20px;
+  isolation: isolate;
+}
+
+/* Diffuse alte Steinwand */
+.scene::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  opacity: .5;
+  background:
+    repeating-linear-gradient(
+      173deg,
+      transparent 0 68px,
+      rgba(210,191,158,.035) 69px,
+      transparent 72px
+    ),
+    repeating-linear-gradient(
+      8deg,
+      transparent 0 112px,
+      rgba(0,0,0,.14) 113px,
+      transparent 116px
+    );
+  filter: blur(1.5px);
+}
+
+/* Dunkle Ecken und schwaches Licht */
+.scene::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      ellipse at 50% 42%,
+      transparent 10%,
+      rgba(0,0,0,.28) 100%
+    ),
+    linear-gradient(
+      90deg,
+      rgba(0,0,0,.38),
+      transparent 20%,
+      transparent 80%,
+      rgba(0,0,0,.42)
+    );
+}
+
+/* Schemen eines Gewölbebogens */
+.arch {
+  position: absolute;
+  width: min(760px, 88vw);
+  height: min(690px, 86vh);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid rgba(191,164,125,.11);
+  border-bottom: 0;
+  border-radius: 52% 52% 0 0 / 40% 40% 0 0;
+  box-shadow:
+    0 0 0 18px rgba(0,0,0,.035),
+    0 0 0 19px rgba(191,164,125,.035),
+    inset 0 25px 55px rgba(0,0,0,.16);
+  pointer-events: none;
+}
+
+/* Spinnweben */
+.web {
+  position: absolute;
+  top: 0;
+  width: clamp(110px, 19vw, 230px);
+  opacity: .20;
+  pointer-events: none;
+}
+
+.web.left {
+  left: 0;
+}
+
+.web.right {
+  right: 0;
+  transform: scaleX(-1);
+}
+
+main {
+  width: min(760px, 100%);
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.eyebrow {
+  margin-bottom: 26px;
+  color: var(--gold-light);
+  font: 500 10px/1.6 Arial, sans-serif;
+  letter-spacing: .34em;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 0;
+  color: #eee5d6;
+  font-size: clamp(54px, 10vw, 92px);
+  font-weight: 400;
+  letter-spacing: .13em;
+  text-indent: .13em;
+  text-shadow: 0 4px 24px rgba(0,0,0,.65);
+}
+
+.rule {
+  width: 54px;
+  height: 1px;
+  margin: 30px auto 27px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--gold),
+    transparent
+  );
+}
+
+h2 {
+  margin: 0;
+  color: #e2d7c5;
+  font-size: clamp(18px, 3vw, 23px);
+  font-weight: 400;
+  letter-spacing: .12em;
+}
+
+.intro {
+  max-width: 440px;
+  margin: 20px auto 0;
+  color: var(--muted);
+  font: 14px/1.9 Arial, sans-serif;
+  letter-spacing: .025em;
+}
+
+.coming-soon {
+  display: inline-block;
+  margin-top: 39px;
+  padding: 13px 24px;
+  border: 1px solid rgba(181,140,75,.78);
+  border-radius: 2px;
+  color: #171614;
+  background: linear-gradient(135deg, #c5a36a, #a98143);
+  font: 600 10px/1.2 Arial, sans-serif;
+  letter-spacing: .19em;
+  text-transform: uppercase;
+}
+
+footer {
+  position: absolute;
+  bottom: 22px;
+  left: 20px;
+  right: 20px;
+  color: rgba(207,195,175,.48);
+  text-align: center;
+  font: 10px/1.5 Arial, sans-serif;
+  letter-spacing: .10em;
+}
+
+@media (max-width: 520px) {
+  .arch {
+    height: 65vh;
+    width: 94vw;
+  }
+  .web {
+    opacity: .14;
+  }
+}
+</style>
+</head>
+
+<body>
+<div class="scene">
+
+  <div class="arch"></div>
+
+  <!-- Spinnennetz links -->
+  <svg class="web left" viewBox="0 0 240 210"
+       fill="none" aria-hidden="true">
+    <g stroke="#d7c9b1" stroke-width=".8">
+      <path d="M0 0 L220 0 M0 0 L0 195 M0 0 L180 155 M0 0 L105 205 M0 0 L235 82"/>
+      <path d="M24 0 Q18 24 0 30 M53 0 Q40 48 0 57 M86 0 Q63 72 0 88 M121 0 Q85 97 0 122 M158 0 Q110 126 0 158"/>
+      <path d="M0 25 Q35 20 61 0 M0 55 Q61 47 103 0 M0 88 Q83 76 145 0 M0 122 Q107 103 185 0 M0 158 Q128 132 220 0"/>
+    </g>
+  </svg>
+
+  <!-- Spinnennetz rechts -->
+  <svg class="web right" viewBox="0 0 240 210"
+       fill="none" aria-hidden="true">
+    <g stroke="#d7c9b1" stroke-width=".8">
+      <path d="M0 0 L220 0 M0 0 L0 195 M0 0 L180 155 M0 0 L105 205 M0 0 L235 82"/>
+      <path d="M24 0 Q18 24 0 30 M53 0 Q40 48 0 57 M86 0 Q63 72 0 88 M121 0 Q85 97 0 122 M158 0 Q110 126 0 158"/>
+      <path d="M0 25 Q35 20 61 0 M0 55 Q61 47 103 0 M0 88 Q83 76 145 0 M0 122 Q107 103 185 0 M0 158 Q128 132 220 0"/>
+    </g>
+  </svg>
+
+  <main>
+    <p class="eyebrow">Autorin für Kurzkrimis & Thriller</p>
+
+    <h1>R. YARD</h1>
+
+    <div class="rule"></div>
+
+    <h2>Kurzkrimis &amp; Thriller</h2>
+
+    <p class="intro">
+      Geschichten über Geheimnisse, menschliche Abgründe
+      und das, was im Verborgenen liegt.
+    </p>
+
+    <span class="coming-soon">
+      Weitere Informationen folgen
+    </span>
+  </main>
+
+  <footer>
+    © 2026 R. Yard
+  </footer>
+
+</div>
+</body>
+</html>
