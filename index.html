@@ -5,16 +5,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#171614">
-<meta name="description" content="R. Yard – Autorin für Kurzkrimis und Thriller. Weitere Informationen folgen.">
+<meta name="description" content="R. Yard – Autorin für Kurzkrimis und Thriller. Geschichten über Geheimnisse und menschliche Abgründe.">
 <title>R. Yard | Kurzkrimis & Thriller</title>
 
 <style>
 :root {
-  --dark: #171614;
   --gold: #b58c4b;
   --gold-light: #d1ad70;
   --cream: #e8dfcf;
-  --muted: #b9ad9b;
+  --muted: #c5b9a7;
 }
 
 * {
@@ -32,78 +31,37 @@ body {
 .scene {
   position: relative;
   min-height: 100vh;
+  min-height: 100svh;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
   padding: 40px 20px;
   isolation: isolate;
-  background:
-    radial-gradient(
-      ellipse 48% 65% at 12% 18%,
-      rgba(119, 78, 39, .30),
-      transparent 100%
-    ),
-    radial-gradient(
-      ellipse 38% 52% at 88% 78%,
-      rgba(91, 61, 37, .25),
-      transparent 100%
-    ),
-    radial-gradient(
-      ellipse 30% 45% at 72% 8%,
-      rgba(102, 76, 48, .13),
-      transparent 100%
+
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(10, 9, 8, .18),
+      rgba(10, 9, 8, .48) 45%,
+      rgba(10, 9, 8, .60)
     ),
     linear-gradient(
-      125deg,
-      #211e1a 0%,
-      #171614 42%,
-      #201b17 72%,
-      #100f0e 100%
-    );
+      180deg,
+      rgba(0, 0, 0, .15),
+      transparent 35%,
+      rgba(0, 0, 0, .45)
+    ),
+    url("keller-hintergrund.png");
+
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-color: #171614;
 }
 
-/* Organische, unregelmäßige Wandstruktur */
+/* Zusätzliche dunkle Ränder für mehr räumliche Tiefe */
 .scene::before {
-  content: "";
-  position: absolute;
-  inset: -12%;
-  z-index: -2;
-  pointer-events: none;
-  opacity: .55;
-  background:
-    radial-gradient(
-      ellipse 30% 24% at 18% 28%,
-      rgba(185, 137, 77, .12),
-      transparent 100%
-    ),
-    radial-gradient(
-      ellipse 24% 38% at 82% 62%,
-      rgba(120, 85, 51, .13),
-      transparent 100%
-    ),
-    radial-gradient(
-      ellipse 45% 18% at 52% 95%,
-      rgba(0, 0, 0, .32),
-      transparent 100%
-    ),
-    repeating-linear-gradient(
-      167deg,
-      transparent 0 83px,
-      rgba(218, 197, 163, .018) 84px,
-      transparent 87px
-    ),
-    repeating-linear-gradient(
-      12deg,
-      transparent 0 121px,
-      rgba(0, 0, 0, .11) 122px,
-      transparent 126px
-    );
-  filter: blur(3px);
-}
-
-/* Tiefe Schatten und unregelmäßiger Lichtabfall */
-.scene::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -111,23 +69,9 @@ body {
   pointer-events: none;
   background:
     radial-gradient(
-      ellipse 65% 75% at 48% 48%,
+      ellipse 55% 65% at 50% 48%,
       transparent 15%,
-      rgba(0, 0, 0, .24) 100%
-    ),
-    linear-gradient(
-      90deg,
-      rgba(0, 0, 0, .27),
-      transparent 27%,
-      transparent 76%,
-      rgba(0, 0, 0, .38)
-    ),
-    linear-gradient(
-      180deg,
-      rgba(0, 0, 0, .15),
-      transparent 35%,
-      transparent 75%,
-      rgba(0, 0, 0, .35)
+      rgba(0, 0, 0, .35) 100%
     );
 }
 
@@ -145,6 +89,7 @@ main {
   font: 500 10px/1.6 Arial, sans-serif;
   letter-spacing: .34em;
   text-transform: uppercase;
+  text-shadow: 0 2px 12px rgba(0,0,0,.8);
 }
 
 h1 {
@@ -154,7 +99,7 @@ h1 {
   font-weight: 400;
   letter-spacing: .13em;
   text-indent: .13em;
-  text-shadow: 0 4px 24px rgba(0,0,0,.65);
+  text-shadow: 0 4px 28px rgba(0,0,0,.85);
 }
 
 .rule {
@@ -175,6 +120,7 @@ h2 {
   font-size: clamp(18px, 3vw, 23px);
   font-weight: 400;
   letter-spacing: .12em;
+  text-shadow: 0 2px 14px rgba(0,0,0,.8);
 }
 
 .intro {
@@ -183,19 +129,21 @@ h2 {
   color: var(--muted);
   font: 14px/1.9 Arial, sans-serif;
   letter-spacing: .025em;
+  text-shadow: 0 2px 12px rgba(0,0,0,.9);
 }
 
 .coming-soon {
   display: inline-block;
   margin-top: 39px;
   padding: 13px 24px;
-  border: 1px solid rgba(181,140,75,.78);
+  border: 1px solid rgba(181,140,75,.85);
   border-radius: 2px;
   color: #171614;
   background: linear-gradient(135deg, #c5a36a, #a98143);
   font: 600 10px/1.2 Arial, sans-serif;
   letter-spacing: .19em;
   text-transform: uppercase;
+  box-shadow: 0 4px 20px rgba(0,0,0,.25);
 }
 
 footer {
@@ -203,10 +151,25 @@ footer {
   bottom: 22px;
   left: 20px;
   right: 20px;
-  color: rgba(207,195,175,.48);
+  z-index: 2;
+  color: rgba(207,195,175,.65);
   text-align: center;
-  font: 10px/1.5 Arial, sans-serif;
+  font: 10px/1.8 Arial, sans-serif;
   letter-spacing: .10em;
+}
+
+footer p {
+  margin: 4px 0 0;
+}
+
+footer a {
+  color: rgba(207,195,175,.75);
+  text-decoration: none;
+  transition: color .2s ease;
+}
+
+footer a:hover {
+  color: var(--gold-light);
 }
 
 @media (max-width: 520px) {
@@ -217,6 +180,14 @@ footer {
   .eyebrow {
     font-size: 9px;
     letter-spacing: .25em;
+  }
+
+  .scene {
+    background-position: 38% center;
+  }
+
+  footer {
+    bottom: 15px;
   }
 }
 </style>
@@ -246,9 +217,11 @@ footer {
 
   <footer>
     © 2026 R. Yard
-    <p></p><a href="impressum.html">Impressum</a>
-    | <a href="datenschutz.html">Datenschutz</a>
-  </p>
+    <p>
+      <a href="impressum.html">Impressum</a>
+      &nbsp;|&nbsp;
+      <a href="datenschutz.html">Datenschutz</a>
+    </p>
   </footer>
 
 </div>
